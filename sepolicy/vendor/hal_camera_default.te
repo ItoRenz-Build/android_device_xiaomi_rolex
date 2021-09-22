@@ -6,3 +6,6 @@ allow hal_camera_default camera_data_file:sock_file { write };
 
 # For interfacing with PowerHAL
 hal_client_domain(hal_camera_default, hal_power)
+
+# Camera prop
+get_prop(hal_camera_default, camera_prop)
