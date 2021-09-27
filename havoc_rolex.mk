@@ -20,18 +20,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common Wave-OS stuff
-$(call inherit-product, vendor/wave/configs/common.mk)
-
+# Inherit some common Havoc stuff
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
 TARGET_BOOT_ANIMATION_RES := 720
+TARGET_INCLUDE_PIXEL_CHARGER := true
+$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
-TARGET_OPT_OUT_GCAM_GO := true
-
-# Modify Codename in ZIP
-WAVE_BUILD := rolex-riva
-
-# Vanilla varient
-VANILLA_BUILD := true
+# Build type
+HAVOC_BUILD_TYPE := UNOFFICIAL
 
 # Inherit from rolex device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -40,7 +36,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4A
 PRODUCT_DEVICE := rolex
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := wave_rolex
+PRODUCT_NAME := havoc_rolex
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
